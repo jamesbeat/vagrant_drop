@@ -1,3 +1,4 @@
+# encoding: utf-8
 Vagrant.configure("2") do |config|
 
   # Load config JSON.
@@ -56,7 +57,8 @@ Vagrant.configure("2") do |config|
   
   
   # Run DrupalDrop install.
-  config.vm.provision :shell, :path => "data/drupaldrop/install.sh", :args => config_json["vm"]["ip"] config_json["vdd"]["sites"]["drupaldrop"]["account_name"] config_json["vdd"]["sites"]["drupaldrop"]["account_pass"] config_json["vdd"]["sites"]["drupaldrop"]["account_mail"] config_json["vdd"]["sites"]["drupaldrop"]["site_name"] config_json["vdd"]["sites"]["drupaldrop"]["site_mail"] config_json["vdd"]["sites"]["drupaldrop"]["site_locale"] config_json["vdd"]["sites"]["drupaldrop"]["vhost"]["document_root"] config_json["vdd"]["sites"]["drupaldrop"]["vhost"]["url"] config_json["vdd"]["sites"]["drupaldrop"]["vhost"]["alias"]
-    
+  
+  
+  config.vm.provision :shell, :path => "data/drupaldrop/install.sh", :args => "#{config_json["vm"]["ip"]} #{config_json["vdd"]["sites"]["drupaldrop"]["account_name"]} #{config_json["vdd"]["sites"]["drupaldrop"]["account_pass"]} #{config_json["vdd"]["sites"]["drupaldrop"]["account_mail"]} #{config_json["vdd"]["sites"]["drupaldrop"]["site_name"]} #{config_json["vdd"]["sites"]["drupaldrop"]["site_mail"]} #{config_json["vdd"]["sites"]["drupaldrop"]["site_locale"]} #{config_json["vdd"]["sites"]["drupaldrop"]["vhost"]["document_root"]} #{config_json["vdd"]["sites"]["drupaldrop"]["vhost"]["url"]} #{config_json["vdd"]["sites"]["drupaldrop"]["vhost"]["alias"]}"    
 
 end
